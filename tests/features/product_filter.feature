@@ -1,13 +1,14 @@
 #Create by Murillo, Marcelo, Luiz
 #language: pt
 
-Funcionalidade: Product Filter
+Funcionalidade: Filtro de Produto
 
   Contexto:
     Dado que eu acesso a página inicial do Magento
 
   Cenário: Filtrar calças masculinas
-    Dado vou para a seção de calças masculinas
+    Dado que eu acesso a seção de vestuário "masculino"
+    E que eu acesso a página de "calças" 
     Quando filtro a opção de compra por "Sweatpants" em "Style"
     E filtro a opção de compra por "All-Weather" em "Climate"
     Então vejo os filtros apicados na página de compra

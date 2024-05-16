@@ -1,7 +1,7 @@
 #Create by Murillo, Marcelo, Luiz
 #language: pt
 
-Funcionalidade: Product Search
+Funcionalidade: Busca por Produtos
 
   Contexto:
     Dado que eu acesso a página inicial do Magento
