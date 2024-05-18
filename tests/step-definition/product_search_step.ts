@@ -33,14 +33,16 @@ When('abro o carrinho', async function () {
     await cart_page.openCart()
 });
 
-Then('eu vejo o produto que com os atributos que selecionei', async function () {
+Then('eu vejo o produto com os atributos que selecionei', async function () {
     const cart_page = new CartPage(pageFixture.page);
     await cart_page.seeCartDetails()
+
+
 });
 
 Then('com o valor total de {string}', async function (string) {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+    const cart_page = new CartPage(pageFixture.page);
+    
 });
 
 When('eu faço uma busca com menos de três caracteres', async function () {
@@ -50,7 +52,7 @@ When('eu faço uma busca com menos de três caracteres', async function () {
 
 Then('sou redirecionado para a página de buscas sem resultados', async function () {
     const searchPage = new SearchPage(pageFixture.page);
-    await searchPage.URLShallBe("https://magento2-demo.magebit.com/catalogsearch/result/?q=at")
+    await searchPage.URLShallBe("https://magento.softwaretestingboard.com/catalogsearch/result/?q=at")
 });
 
 Then('vejo a mensagem {string}', async function (alert_message) {
@@ -65,5 +67,5 @@ When('eu faço uma busca por {string}', async function (content_search) {
 
 Then('sou redirecionado para a página de buscas', async function () {
     const searchPage = new SearchPage(pageFixture.page);
-    await searchPage.URLShallBe("https://magento2-demo.magebit.com/catalogsearch/result/?q=asldfjlasfjlasjfaksl")
+    await searchPage.URLShallBe("https://magento.softwaretestingboard.com/catalogsearch/result/?q=asldfjlasfjlasjfaksl")
 });
