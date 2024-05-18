@@ -1,10 +1,5 @@
 import { Given, Then, When } from "@cucumber/cucumber";
 
-Given('que eu acesso a página inicial do Magento', function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
-  });
-
   Given('que eu acesso a seção de vestuário {string}', function (jaqueta) {
     // Write code here that turns the phrase above into concrete actions
     return 'pending';
@@ -35,7 +30,3 @@ Given('que eu acesso a página inicial do Magento', function () {
     return 'pending';
   });
 
-  Then('vejo a mensagem {string}', function (mensagem) {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
-  });
