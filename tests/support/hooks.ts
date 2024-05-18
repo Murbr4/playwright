@@ -10,7 +10,7 @@ let page: Page; // página  web
 
 BeforeAll(async function () {
     getEnv();
-    browser = await chromium.launch({ headless: true });
+    browser = await chromium.launch({ headless: false });
 });
 
 Before(async function () {
