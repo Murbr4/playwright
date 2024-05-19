@@ -6,9 +6,10 @@ Funcionalidade: Filtro de Produto
   Contexto:
     Dado que eu acesso a página inicial do Magento
 
+  @bug
   Cenário: Filtrar calças masculinas
     Dado que eu acesso a seção de vestuário "masculino"
-    E que eu acesso a página de "calças" 
+    E que eu acesso a página de "Pants" 
     Quando filtro a opção de compra por "Sweatpants" em "Style"
     E filtro a opção de compra por "All-Weather" em "Climate"
-    Então vejo os filtros apicados na página de compra
+    Então vejo que a a página foi atualizada com os filtros escolhidos
