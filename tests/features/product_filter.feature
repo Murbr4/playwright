@@ -6,7 +6,6 @@ Funcionalidade: Filtro de Produto
   Contexto:
     Dado que eu acesso a página inicial do Magento
 
-  @bug
   Cenário: Filtrar calças masculinas
     Dado que eu acesso a seção de vestuário "masculino"
     E que eu acesso a página de "Pants" 
