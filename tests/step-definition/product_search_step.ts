@@ -3,7 +3,7 @@ import { HomePage } from "../pages/home-page";
 import { pageFixture } from "../support/pageFixture";
 import { SearchPage } from "../pages/search_page";
 import { ProductPage } from "../pages/product_page";
-import { CartPage } from "../pages/cart_page";
+import { CartPage } from "../pages/mini_cart_page";
 
 Given('que eu acesso a página inicial do Magento', async function () {
     const homePage = new HomePage(pageFixture.page);
@@ -36,7 +36,7 @@ When('abro o carrinho', async function () {
 Then('eu vejo o produto com os atributos que selecionei', async function () {
     const cart_page = new CartPage(pageFixture.page);
     await cart_page.expandCartDetails()
-    await cart_page.validateProductAttributes("L", "Yellow", "2");
+    await cart_page.validateProductAttributes("L", "Yellow");
 });
 
 Then('com o valor total de {string}', async function (string) {
