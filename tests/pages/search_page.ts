@@ -16,7 +16,7 @@ export class SearchPage {
     };
 
     async selectProductOnSearchResults(product: string){
-        const product_locator  = '//a[@class="product-item-link"][contains(text(),,"' + product + '")]'; 
+        const product_locator  = '//a[@class="product-item-link"][contains(text(),"' + product + '")]'; 
         await this.page.locator(product_locator).click()
     };
 

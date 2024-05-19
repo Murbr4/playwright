@@ -4,8 +4,9 @@ export class CartPage {
     page: Page;
     openCartButton: Locator;
     cartDetailsButton: Locator;
-    productSizeLabel: Locator;
-    productColorLabel: Locator;
+    productAttributes: Locator;
+    totalPrice: Locator;
+
     //productQtyLabel: Locator;
     //productTotalLabel: Locator;
 
@@ -13,20 +14,27 @@ export class CartPage {
         this.page  = page;
         this.openCartButton = this.page.locator('//div[@class="minicart-wrapper"]')
         this.cartDetailsButton = this.page.getByRole('tab', { name: 'See Details' })
-        this.productSizeLabel = this.page.locator('#mini-cart')
-        this.productColorLabel = this.page.locator('#mini-cart')   
+        this.productAttributes = this.page.locator('#mini-cart')
+        this.totalPrice = this.page.locator('.price-wrapper')
     }
 
     async openCart(){
         await this.openCartButton.click()
     };
 
-    async seeCartDetails(){
+    async expandCartDetails(){
         await this.cartDetailsButton.click()
     };
 
     async validateProductAttributes(size: string, color: string, qty: string){
-        
+        await expect(this.productAttributes.getByText('${size}', {exact: true})).toBeVisible();
+        await expect(this.productAttributes.getByText('${color}', { exact: true})).toBeVisible();
+        await expect(this.page.getByText('${qty}', { exact: true })).toBeVisible();
+    };
+
+    async productTotalPriceShallBe(total: string){
+        const totalPrice = this.totalPrice.textContent()
+        await expect(totalPrice).toEqual(total)
     };
 
     

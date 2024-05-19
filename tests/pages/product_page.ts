@@ -2,7 +2,6 @@ import { expect, Locator, Page } from "playwright/test";
 
 export class ProductPage {
     page: Page;
-    //colorButton: Locator;
     qtyButton: Locator;
     addToCartButton: Locator;
 
@@ -13,11 +12,12 @@ export class ProductPage {
     }
 
     async selectProductAttributes(size: string, color: string, qty: string){
-        await this.page.getByLabel(size, { exact: true }).click();
-
-        await this.page.getByLabel(color).click()
-        await this.qtyButton.click()
-        await this.qtyButton.fill(qty)
+       //await this.page.getByLabel(size, { exact: true }).click();
+        const largeSize = '//div[@option-tooltip-value="'+ size + '"]';
+        await this.page.locator(largeSize).click();
+        await this.page.getByLabel(color).click();
+        await this.qtyButton.click();
+        await this.qtyButton.fill(qty);
     };
 
     async addProductToCart(){

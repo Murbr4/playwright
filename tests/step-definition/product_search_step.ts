@@ -20,7 +20,7 @@ When('seleciono a compra de {string} unidades na cor {string} e tamanho {string}
     const product_page = new ProductPage(pageFixture.page);
 
     await search_page.selectProductOnSearchResults(product);
-    await product_page.selectProductAttributes(color, size, qty)
+    await product_page.selectProductAttributes(size, color, qty)
 });
 
 When('adiciono o produto ao carrinho', async function () {
@@ -35,14 +35,13 @@ When('abro o carrinho', async function () {
 
 Then('eu vejo o produto com os atributos que selecionei', async function () {
     const cart_page = new CartPage(pageFixture.page);
-    await cart_page.seeCartDetails()
-
-
+    await cart_page.expandCartDetails()
+    await cart_page.validateProductAttributes("L", "Yellow", "2");
 });
 
 Then('com o valor total de {string}', async function (string) {
     const cart_page = new CartPage(pageFixture.page);
-    
+    await cart_page.productTotalPriceShallBe("84");
 });
 
 When('eu faço uma busca com menos de três caracteres', async function () {
