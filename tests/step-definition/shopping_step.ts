@@ -34,18 +34,22 @@ When('seleciono a primeira calca da lista', async function () {
 
 When('seleciono o tamanho {string}', async function (tamanho) {
   // Write code here that turns the phrase above into concrete actions
-  const selectSize = new SelectOptionProduct(pageFixture.page);
-  await selectSize.size(tamanho)
+  const selectOptionProduct = new SelectOptionProduct(pageFixture.page);
+  await selectOptionProduct.size(tamanho)
 
 });
 
 When('seleciono a cor {string}', async function (cor) {
-  const selectColor = new SelectOptionProduct(pageFixture.page);
-  await selectColor.selectColorProduct(cor)
+  const selectOptionProduct = new SelectOptionProduct(pageFixture.page);
+  await selectOptionProduct.selectColorProduct(cor)
 });
 
 When('adiciono o produto no carrinho', async function () {
-  const selectColor = new SelectOptionProduct(pageFixture.page);
-  await selectColor.clickButtonProduct()
+  const selectOptionProduct = new SelectOptionProduct(pageFixture.page);
+  await selectOptionProduct.clickButtonProduct()
 });
 
+Then('vejo a mensagem na pagina {string}', async function (mensagem) {
+  const selectOptionProduct = new SelectOptionProduct(pageFixture.page);
+  await selectOptionProduct.clickButtonProduct()
+});

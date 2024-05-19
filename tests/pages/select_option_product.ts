@@ -20,4 +20,8 @@ export class SelectOptionProduct {
 
     };
 
+    async menssage(mensagem: string) {
+        await expect(this.page.getByText(mensagem)).toBeVisible();
+
+    };
 }
