@@ -3,12 +3,12 @@ import { expect, Locator, Page } from "playwright/test";
 export class ProductCatalog {
     page: Page;
     addWishListButton: Locator;
-    firstCatalogItem: Locator;
+    catalogList: Locator;
 
     constructor(page: Page){
         this.page  = page;
         this.addWishListButton = this.page.getByRole('link', { name: ' Add to Wish List' });
-        this.firstCatalogItem = this.page.locator('ol > li:first-child');
+        this.catalogList = this.page.locator('//ol[contains(@class, "product-items")]/li[1]');
     }
 
     async selectCategory(category: string){
@@ -28,7 +28,7 @@ export class ProductCatalog {
     };
 
     async opentFirstItemOfList(){
-        await this.firstCatalogItem.click();
-    }
+        await this.page.getByRole('link', { name: 'Cronus Yoga Pant' }).first().click();
+    };
 
 };

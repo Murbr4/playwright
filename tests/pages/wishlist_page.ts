@@ -1,18 +1,19 @@
+import exp from "constants";
 import { expect, Locator, Page } from "playwright/test";
 
-//mover tudo para o page de login
 export class Wishlist {
     page: Page;
-    alertMessage: Locator;
+    wishlistError: Locator;
 
     constructor(page: Page){
         this.page  = page;
-        this.alertMessage = this.page.getByRole('alert');
+        this.wishlistError = this.page.locator('//div[text()="You must login or register to add items to your wishlist."]');
     }
 
     async validateAlert(expectedMessage: string){
-        const receivedMessage =  await this.alertMessage.textContent();
-        expect(receivedMessage).toEqual(expectedMessage);
+        //await this.page.getByText('You must login or register to add items to your wishlist.');
+        const visibleAlertText = await this.wishlistError.innerText();
+        expect(visibleAlertText).toEqual(expectedMessage);
     };
 
 };
